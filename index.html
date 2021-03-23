@@ -1,0 +1,83 @@
+<!--
+    205210072
+    MUHAMMAD ANGGER CHOIRUL UMAM
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aplikasi Kasir Sederhana 205410072</title>
+        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/style.css" rel="stylesheet">
+    </head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-light justify-content-center">
+        <span class="navbar-brand mb-0 h1">APLIKASI KASIR SEDERHANA</span>
+    </nav>
+
+    <!-- Content -->
+    <div class="container con-atas" id="vue">
+        <div class="row">
+            <label for="barang">Cari Barang</label>
+            <input type="barang" class="form-control" id="barang" placeholder="Masukkan Nama Barang" v-model="search">
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+            <div class="card card-list" style="width: 18rem;" v-for="product in CariBarang">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.nama}}</h5>
+                    <p class="card-text" style="color: green;">Rp. {{product.harga}},00</p>
+                    <hr>
+                    <div class="row" style="padding: 20px;">
+                        <label>Jumlah :</label>
+                        <input class="form-control" v-bind:id="product.ids" v-model.number="product.jumlah" placeholder="Pcs" type="number">
+                    </div>
+                    <p class="card-text" style="color: green;">Rp. {{product.harga * product.jumlah}},00</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row justify-content-center">
+            <h5>Total Pembelian</h5>
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nama Barang</th>
+                        <th scope="col">Jumlah Barang</th>
+                        <th scope="col">Total Harga</th>
+                    </tr>
+                </thead>
+                <tbody v-for="barang in TabelBarang">
+                    <tr>
+                        <th>{{barang.nama}}</th>
+                        <th>{{barang.jumlah}}</th>
+                        <th>{{barang.jumlah*barang.harga}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
+        <div class="container">
+            <h6>JUMLAH BARANG YANG DIBELI: {{jumlahbarang}} PCS</h6>
+            <h6>TOTAL HARGA YANG HARUS DIBAYAR: Rp. {{totalharga}},00</h6>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container" style="display: block;">
+          <span class="text-muted">MUHAMMAD ANGGER CHOIRUL UMAM</span>
+        </div>
+    </footer>
+
+    <!-- Module -->
+    <script src="assets/vue.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- My Js -->
+    <script src="app.js"></script>
+</body>
+</html>
